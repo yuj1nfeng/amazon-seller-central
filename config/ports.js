@@ -17,7 +17,7 @@ const PORTS = {
 
 const HOSTS = {
   // 本地开发主机
-  LOCAL: '0.0.0.0',
+  LOCAL: 'localhost',
 
   // 开发环境主机
   DEV: '127.0.0.1',
