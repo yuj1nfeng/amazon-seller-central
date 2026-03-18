@@ -45,6 +45,8 @@ const CORS_ORIGINS = [
   'http://127.0.0.1:3001',
   'http://127.0.0.1:3002',
   'http://127.0.0.1:3003',
+  'https://sellercentral.amazon.com',
+  'https://admin.sellercentral.amazon.com',
 ];
 
 module.exports = {
