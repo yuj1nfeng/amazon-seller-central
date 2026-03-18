@@ -2,12 +2,12 @@
 // 注意：由于config/ports.js是CommonJS模块，我们需要动态导入或使用硬编码的URL
 // 为了避免模块系统冲突，这里使用硬编码的URL配置
 
-const BACKEND_URL = 'http://localhost:3001';
+const BACKEND_URL = 'http://127.0.0.1:3001';
 
 export const ADMIN_API_CONFIG = {
   // 后端API基础URL
   BASE_URL: BACKEND_URL,
-  
+
   // API端点
   ENDPOINTS: {
     // 店铺相关
@@ -18,13 +18,13 @@ export const ADMIN_API_CONFIG = {
       UPDATE: (id: string) => `/api/stores/${id}`,
       DELETE: (id: string) => `/api/stores/${id}`,
     },
-    
+
     // Dashboard相关
     DASHBOARD: {
       SNAPSHOT: (storeId: string) => `/api/dashboard/snapshot/${storeId}`,
       UPDATE_SNAPSHOT: (storeId: string) => `/api/dashboard/snapshot/${storeId}`,
     },
-    
+
     // 产品相关
     PRODUCTS: {
       LIST: '/api/products',
@@ -35,7 +35,7 @@ export const ADMIN_API_CONFIG = {
       BY_STORE: (storeId: string) => `/api/products?store_id=${storeId}`,
       UPLOAD_IMAGE: '/api/products/upload-image',
     },
-    
+
     // 销售数据相关
     SALES: {
       LIST: '/api/sales',
@@ -45,7 +45,7 @@ export const ADMIN_API_CONFIG = {
       DAILY_SALES: (storeId: string) => `/api/sales/daily/${storeId}`,
       GENERATE_DAILY: (storeId: string) => `/api/sales/generate-daily/${storeId}`,
     },
-    
+
     // Communications相关
     COMMUNICATIONS: {
       BY_STORE: (storeId: string) => `/api/communications/${storeId}/admin`,
@@ -54,13 +54,13 @@ export const ADMIN_API_CONFIG = {
       UPDATE_FORUM: (storeId: string, forumId: string) => `/api/communications/${storeId}/forums/${forumId}`,
       UPDATE_NEWS: (storeId: string, newsId: string) => `/api/communications/${storeId}/news/${newsId}`,
     },
-    
+
     // VOC相关
     VOC: {
       BY_STORE: (storeId: string) => `/api/voc/${storeId}`,
       UPDATE: (storeId: string) => `/api/voc/${storeId}`,
     },
-    
+
     // 用户相关
     USERS: {
       LIST: '/api/users',
@@ -71,19 +71,19 @@ export const ADMIN_API_CONFIG = {
       REFRESH_OTP: (id: string) => `/api/users/${id}/refresh-otp`,
       REFRESH_PASSWORD: (id: string) => `/api/users/${id}/refresh-password`,
     },
-    
+
     // 账户健康相关
     ACCOUNT_HEALTH: {
       BY_STORE: (storeId: string) => `/api/account-health/${storeId}`,
       UPDATE: (storeId: string) => `/api/account-health/${storeId}`,
     },
-    
+
     // 法律实体相关
     LEGAL_ENTITY: {
       BY_STORE: (storeId: string) => `/api/legal-entity/${storeId}`,
       UPDATE: (storeId: string) => `/api/legal-entity/${storeId}`,
     },
-    
+
     // 销售申请相关
     SELLING_APPLICATIONS: {
       BY_STORE: (storeId: string) => `/api/selling-applications/${storeId}`,
@@ -95,7 +95,7 @@ export const ADMIN_API_CONFIG = {
 // API请求工具函数
 export const adminApiRequest = async (endpoint: string, options: RequestInit = {}) => {
   const url = `${ADMIN_API_CONFIG.BASE_URL}${endpoint}`;
-  
+
   const defaultOptions: RequestInit = {
     headers: {
       'Content-Type': 'application/json',
@@ -106,11 +106,11 @@ export const adminApiRequest = async (endpoint: string, options: RequestInit = {
 
   try {
     const response = await fetch(url, defaultOptions);
-    
+
     if (!response.ok) {
       throw new Error(`API请求失败: ${response.status} ${response.statusText}`);
     }
-    
+
     const data = await response.json();
     return data;
   } catch (error) {
