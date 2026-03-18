@@ -1,0 +1,102 @@
+[
+  {
+    "id": "user-admin-001",
+    "email": "admin@technest.com",
+    "name": "系统管理员",
+    "role": "admin",
+    "store_id": "store-us-main",
+    "is_active": true,
+    "last_login": "2026-03-18T03:13:17.774Z",
+    "password": "A123456",
+    "otp_secret": "123456",
+    "created_at": "2026-01-01T00:00:00.000Z",
+    "updated_at": "2026-03-18T03:13:17.774Z"
+  },
+  {
+    "id": "user-manager-001",
+    "email": "manager@technest-us.com",
+    "name": "美国店铺经理",
+    "role": "manager",
+    "store_id": "store-us-main",
+    "is_active": true,
+    "last_login": "2026-01-20T09:30:00.000Z",
+    "password": "B654321",
+    "otp_secret": "654321",
+    "created_at": "2026-01-01T00:00:00.000Z",
+    "updated_at": "2026-01-20T09:30:00.000Z"
+  },
+  {
+    "id": "user-manager-002",
+    "email": "manager@technest-jp.com",
+    "name": "日本店铺经理",
+    "role": "manager",
+    "store_id": "store-jp-main",
+    "is_active": true,
+    "last_login": "2026-01-20T08:45:00.000Z",
+    "password": "C789123",
+    "otp_secret": "789123",
+    "created_at": "2026-01-01T00:00:00.000Z",
+    "updated_at": "2026-01-20T08:45:00.000Z"
+  },
+  {
+    "id": "user-staff-001",
+    "email": "staff1@technest-us.com",
+    "name": "美国客服专员",
+    "role": "user",
+    "store_id": "store-us-main",
+    "is_active": true,
+    "last_login": "2026-01-20T08:00:00.000Z",
+    "password": "D456789",
+    "otp_secret": "456789",
+    "created_at": "2026-01-05T00:00:00.000Z",
+    "updated_at": "2026-01-20T08:00:00.000Z"
+  },
+  {
+    "id": "user-staff-002",
+    "email": "staff2@technest-jp.com",
+    "name": "日本客服专员",
+    "role": "user",
+    "store_id": "store-jp-main",
+    "is_active": true,
+    "last_login": "2026-01-19T16:30:00.000Z",
+    "password": "E987654",
+    "otp_secret": "987654",
+    "created_at": "2026-01-05T00:00:00.000Z",
+    "updated_at": "2026-01-19T16:30:00.000Z"
+  },
+  {
+    "id": "user-1768917681926-pn3usub",
+    "email": "test@example.com",
+    "name": "测试用户",
+    "role": "user",
+    "store_id": "store-us-main",
+    "is_active": true,
+    "password": "F321654",
+    "otp_secret": "321654",
+    "created_at": "2026-01-20T14:01:21.926Z",
+    "updated_at": "2026-01-20T14:01:21.926Z"
+  },
+  {
+    "id": "user-1768921768855-48l3gav",
+    "email": "519798002@qq.com",
+    "name": "alanlr",
+    "role": "admin",
+    "is_active": true,
+    "password": "G149113",
+    "otp_secret": "149113",
+    "created_at": "2026-01-20T15:09:28.855Z",
+    "updated_at": "2026-01-21T14:13:55.839Z",
+    "last_login": "2026-01-21T14:13:55.839Z"
+  },
+  {
+    "id": "user-1769016944406-uqy1jxp",
+    "email": "alanliurong521@gmail.com",
+    "name": "刘荣",
+    "role": "admin",
+    "is_active": true,
+    "password": "E245317",
+    "otp_secret": "318770",
+    "created_at": "2026-01-21T17:35:44.406Z",
+    "updated_at": "2026-01-21T17:35:44.406Z"
+  }
+]
