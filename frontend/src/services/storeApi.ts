@@ -101,6 +101,7 @@ export interface Product {
   status: 'Active' | 'Inactive';
   sales_amount: number;
   units_sold: number;
+  page_views?: number;
   image_url?: string;
   created_at: string;
   updated_at: string;

@@ -15,6 +15,7 @@ import { cn } from '../utils/cn';
 import { ActionsCard, CommunicationsCard } from './LeftColumnComponents';
 import { storeApi, type StoreData, type DashboardData } from '../services/storeApi';
 import { API_CONFIG, apiGet } from '../config/api';
+import type { Store } from '../types';
 
 // ==================== Mock Data ====================
 const ACTIONS = [
@@ -238,7 +239,26 @@ export default function Dashboard() {
         }
 
         console.log('Using store for API calls:', { id: currentStore.id, name: currentStore.name });
-        setCurrentStore(currentStore);
+        
+        // Convert StoreData to Store type for setCurrentStore
+        const storeToSet: Store = {
+          id: currentStore.id,
+          name: currentStore.name,
+          country: 'US',
+          marketplace: currentStore.marketplace,
+          currency_symbol: '$',
+          business_type: currentStore.business_type as 'Individual' | 'Business' || 'Business',
+          timezone: 'UTC',
+          vacation_mode: false,
+          auto_pricing: true,
+          inventory_alerts: true,
+          order_notifications: true,
+          is_active: true,
+          created_at: currentStore.created_at || new Date().toISOString(),
+          updated_at: currentStore.updated_at || new Date().toISOString(),
+        };
+        
+        useStore.getState().setCurrentStore(storeToSet);
 
         // Load dashboard data from backend API using unified API config
         const [snapshotResponse, productsResponse, actionsResponse, communicationsResponse] = await Promise.all([
@@ -316,7 +336,7 @@ export default function Dashboard() {
       listingStatus: p.status as 'Active' | 'Inactive' || 'Active',
       sales: `${currencySymbol}${p.sales_amount || 0}`,
       unitsSold: p.units_sold || 0,
-      pageViews: p.page_views || Math.floor(Math.random() * 500),
+      pageViews: p.page_views ?? Math.floor(Math.random() * 500),
       inventory: `${p.inventory || 0} ${t('availableQuantity')}`,
       price: `${currencySymbol}${p.price || 0}`,
       img: p.image_url || "https://m.media-amazon.com/images/I/71tJkM8vDVL._AC_UY218_.jpg",

@@ -1,0 +1,10 @@
+Windows Registry Editor Version 5.00
+
+; Force hosts file to be used before DNS
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters]
+"DisableParallelAandAAAA"=dword:00000001
+"PrioritizeRecordData"=dword:00000001
+
+; Disable DNS-over-HTTPS for local resolution
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\DNSClient]
+"DoNotUseHostsFile"=dword:00000000

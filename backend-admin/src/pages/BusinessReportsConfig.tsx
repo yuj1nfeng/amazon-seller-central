@@ -1,8 +1,8 @@
 import React from 'react';
-import { 
-  Card, 
-  Button, 
-  message, 
+import {
+  Card,
+  Button,
+  message,
   Typography,
   Space,
   Form,
@@ -24,14 +24,14 @@ interface BusinessReportsConfigProps {
   selectedStore: any;
 }
 
-const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({ 
-  selectedStoreId, 
-  selectedStore 
+const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({
+  selectedStoreId,
+  selectedStore
 }) => {
   const [form] = Form.useForm();
   const queryClient = useQueryClient();
 
-  // 获取Sales Snapshot数据
+  // ?? Sales Snapshot ??
   const { data: salesSnapshotData, isLoading } = useQuery({
     queryKey: ['salesSnapshotData', selectedStoreId],
     queryFn: async () => {
@@ -42,7 +42,7 @@ const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({
     enabled: !!selectedStoreId,
   });
 
-  // 当数据加载完成时，更新表单
+  // ?????????????
   React.useEffect(() => {
     if (salesSnapshotData) {
       form.setFieldsValue({
@@ -55,23 +55,23 @@ const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({
   const handleSave = async () => {
     try {
       const values = await form.validateFields();
-      
-      // 转换日期格式
+
+      // ??????
       const formattedValues = {
         ...values,
         snapshot_time: values.snapshot_time ? values.snapshot_time.toISOString() : new Date().toISOString()
       };
-      
+
       const data = await adminApiPut(`/api/sales/snapshot/${selectedStoreId}`, formattedValues);
       if (data.success) {
-        message.success('Business Reports数据更新成功！');
+        message.success('Business Reports ???????');
         queryClient.invalidateQueries({ queryKey: ['salesSnapshotData'] });
       } else {
-        message.error('更新失败');
+        message.error('????');
       }
     } catch (error) {
       console.error('Form validation failed:', error);
-      message.error('操作失败');
+      message.error('????');
     }
   };
 
@@ -81,7 +81,7 @@ const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({
         ...salesSnapshotData,
         snapshot_time: salesSnapshotData.snapshot_time ? dayjs(salesSnapshotData.snapshot_time) : dayjs()
       });
-      message.info('已重置为原始数据');
+      message.info('????????');
     }
   };
 
@@ -100,29 +100,29 @@ const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-        <Title level={2}>Business Reports 数据配置</Title>
+        <Title level={2}>Business Reports ????</Title>
         {selectedStore && (
           <div style={{ fontSize: '14px', color: '#666' }}>
-            当前店铺: <strong>{selectedStore.name}</strong> ({selectedStore.marketplace})
+            ?????<strong>{selectedStore.name}</strong> ({selectedStore.marketplace})
           </div>
         )}
       </div>
-      
+
       {!selectedStoreId ? (
         <Card>
-          <div style={{ 
-            textAlign: 'center', 
-            padding: '60px 0', 
+          <div style={{
+            textAlign: 'center',
+            padding: '60px 0',
             color: '#999',
-            fontSize: '16px' 
+            fontSize: '16px'
           }}>
-            请先在页面顶部选择一个店铺
+            ?????????????
           </div>
         </Card>
       ) : (
         <>
-          {/* 当前数据概览 */}
-          <Card title="📊 当前Sales Snapshot概览" style={{ marginBottom: 24 }}>
+          {/* ?????? */}
+          <Card title="?? ?? Sales Snapshot ??" style={{ marginBottom: 24 }}>
             <Row gutter={16}>
               <Col span={4}>
                 <Statistic
@@ -168,24 +168,24 @@ const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({
             </Row>
           </Card>
 
-          {/* 编辑表单 */}
-          <Card 
-            title="✏️ 编辑Sales Snapshot数据" 
+          {/* ???? */}
+          <Card
+            title="?? ?? Sales Snapshot ??"
             extra={
               <Space>
-                <Button 
-                  icon={<ReloadOutlined />} 
+                <Button
+                  icon={<ReloadOutlined />}
                   onClick={handleReset}
                 >
-                  重置
+                  ??
                 </Button>
-                <Button 
-                  type="primary" 
-                  icon={<SaveOutlined />} 
+                <Button
+                  type="primary"
+                  icon={<SaveOutlined />}
                   onClick={handleSave}
                   loading={isLoading}
                 >
-                  保存更改
+                  ????
                 </Button>
               </Space>
             }
@@ -207,7 +207,7 @@ const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({
                   <Form.Item
                     label="Total Order Items"
                     name="total_order_items"
-                    rules={[{ required: true, message: '请输入Total Order Items' }]}
+                    rules={[{ required: true, message: '??? Total Order Items' }]}
                   >
                     <InputNumber
                       min={0}
@@ -215,7 +215,6 @@ const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({
                       style={{ width: '100%' }}
                       size="large"
                       formatter={value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                      parser={value => Number(value!.replace(/\$\s?|(,*)/g, ''))}
                     />
                   </Form.Item>
                 </Col>
@@ -224,7 +223,7 @@ const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({
                   <Form.Item
                     label="Units Ordered"
                     name="units_ordered"
-                    rules={[{ required: true, message: '请输入Units Ordered' }]}
+                    rules={[{ required: true, message: '??? Units Ordered' }]}
                   >
                     <InputNumber
                       min={0}
@@ -232,7 +231,6 @@ const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({
                       style={{ width: '100%' }}
                       size="large"
                       formatter={value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                      parser={value => Number(value!.replace(/\$\s?|(,*)/g, ''))}
                     />
                   </Form.Item>
                 </Col>
@@ -243,7 +241,7 @@ const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({
                   <Form.Item
                     label="Ordered Product Sales ($)"
                     name="ordered_product_sales"
-                    rules={[{ required: true, message: '请输入Ordered Product Sales' }]}
+                    rules={[{ required: true, message: '??? Ordered Product Sales' }]}
                   >
                     <InputNumber
                       min={0}
@@ -252,7 +250,6 @@ const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({
                       style={{ width: '100%' }}
                       size="large"
                       formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                      parser={value => Number(value!.replace(/\$\s?|(,*)/g, ''))}
                     />
                   </Form.Item>
                 </Col>
@@ -261,7 +258,7 @@ const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({
                   <Form.Item
                     label="Avg. Units/Order Item"
                     name="avg_units_per_order_item"
-                    rules={[{ required: true, message: '请输入Avg Units per Order Item' }]}
+                    rules={[{ required: true, message: '??? Avg Units per Order Item' }]}
                   >
                     <InputNumber
                       min={0}
@@ -279,7 +276,7 @@ const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({
                   <Form.Item
                     label="Avg. Sales/Order Item ($)"
                     name="avg_sales_per_order_item"
-                    rules={[{ required: true, message: '请输入Avg Sales per Order Item' }]}
+                    rules={[{ required: true, message: '??? Avg Sales per Order Item' }]}
                   >
                     <InputNumber
                       min={0}
@@ -288,7 +285,6 @@ const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({
                       style={{ width: '100%' }}
                       size="large"
                       formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                      parser={value => Number(value!.replace(/\$\s?|(,*)/g, ''))}
                     />
                   </Form.Item>
                 </Col>
@@ -297,7 +293,7 @@ const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({
                   <Form.Item
                     label="Snapshot Time"
                     name="snapshot_time"
-                    rules={[{ required: true, message: '请选择快照时间' }]}
+                    rules={[{ required: true, message: '???????' }]}
                   >
                     <DatePicker
                       showTime
@@ -311,18 +307,18 @@ const BusinessReportsConfig: React.FC<BusinessReportsConfigProps> = ({
             </Form>
           </Card>
 
-          {/* 使用说明 */}
-          <Card title="💡 使用说明" style={{ marginTop: 24 }}>
+          {/* ???? */}
+          <Card title="?? ????" style={{ marginTop: 24 }}>
             <div style={{ lineHeight: '1.8' }}>
-              <p><strong>Sales Snapshot</strong> 显示在Business Reports页面的销售快照部分：</p>
+              <p><strong>Sales Snapshot</strong> ??? Business Reports ??????????</p>
               <ul style={{ paddingLeft: '20px' }}>
-                <li><strong>Total Order Items</strong>: 订单项目总数</li>
-                <li><strong>Units Ordered</strong>: 订购单位数</li>
-                <li><strong>Ordered Product Sales</strong>: 订购商品销售额</li>
-                <li><strong>Avg. Units/Order Item</strong>: 平均单位数/订单项目</li>
-                <li><strong>Avg. Sales/Order Item</strong>: 平均销售额/订单项目</li>
+                <li><strong>Total Order Items</strong>: ??????</li>
+                <li><strong>Units Ordered</strong>: ?????</li>
+                <li><strong>Ordered Product Sales</strong>: ???????</li>
+                <li><strong>Avg. Units/Order Item</strong>: ?????/????</li>
+                <li><strong>Avg. Sales/Order Item</strong>: ?????/????</li>
               </ul>
-              <p><strong>注意：</strong>修改这些数值后，前端Business Reports页面的Sales Snapshot部分会实时更新。</p>
+              <p><strong>???</strong>?????????? Business Reports ??? Sales Snapshot ????????</p>
             </div>
           </Card>
         </>

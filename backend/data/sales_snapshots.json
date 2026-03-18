@@ -41,12 +41,12 @@
   },
   {
     "store_id": "store-us-main",
-    "total_order_items": 4432432,
+    "total_order_items": 8900678,
     "units_ordered": 23345,
     "ordered_product_sales": 18657478,
-    "avg_units_per_order": 189.8664382094667,
-    "avg_sales_per_order": 4.209309471639949,
-    "snapshot_time": "2026-03-18T04:25:55.435Z",
+    "avg_units_per_order": 381.2669950738916,
+    "avg_sales_per_order": 2.0961861557063406,
+    "snapshot_time": "2026-03-18T05:39:15.055Z",
     "id": "9cd2d80b-804a-4628-8cac-a946d9a802cd"
   },
   {

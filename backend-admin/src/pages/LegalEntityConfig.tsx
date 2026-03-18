@@ -190,7 +190,6 @@ const LegalEntityConfig: React.FC = () => {
           form={form}
           layout="vertical"
           onFinish={handleSave}
-          loading={legalEntityLoading}
         >
           {/* 公司基本信息 */}
           <Card size="small" style={{ marginBottom: 16, backgroundColor: '#f8f9fa' }}>

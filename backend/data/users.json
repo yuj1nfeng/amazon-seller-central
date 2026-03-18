@@ -6,11 +6,11 @@
     "role": "admin",
     "store_id": "store-us-main",
     "is_active": true,
-    "last_login": "2026-03-18T03:13:17.774Z",
+    "last_login": "2026-03-18T05:38:41.079Z",
     "password": "A123456",
     "otp_secret": "123456",
     "created_at": "2026-01-01T00:00:00.000Z",
-    "updated_at": "2026-03-18T03:13:17.774Z"
+    "updated_at": "2026-03-18T05:38:41.079Z"
   },
   {
     "id": "user-manager-001",

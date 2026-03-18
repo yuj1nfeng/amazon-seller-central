@@ -199,7 +199,6 @@ export const translations: Record<LangType, Record<string, string>> = {
     inventoryPerformanceIndex: '库存绩效指数',
     current: '当前',
     globalPromotionsSales: '全球促销销售额',
-    noDataAvailable: '无可用数据',
     adSales: '广告销售额',
     adImpressions: '广告展示量',
 
@@ -747,7 +746,6 @@ export const translations: Record<LangType, Record<string, string>> = {
     inventoryPerformanceIndex: 'Inventory Performance Index',
     current: 'Current',
     globalPromotionsSales: 'Global Promotions Sales',
-    noDataAvailable: 'No data available',
     adSales: 'Ad Sales',
     adImpressions: 'Ad Impressions',
 
