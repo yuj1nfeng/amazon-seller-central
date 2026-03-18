@@ -17,7 +17,7 @@ const PORTS = {
 
 const HOSTS = {
   // 本地开发主机
-  LOCAL: '0.0.0.0',
+  LOCAL: 'localhost',
 
   // 开发环境主机
   DEV: '127.0.0.1',
@@ -45,6 +45,8 @@ const CORS_ORIGINS = [
   'http://127.0.0.1:3001',
   'http://127.0.0.1:3002',
   'http://127.0.0.1:3003',
+  'https://sellercentral.amazon.com',
+  'https://admin.sellercentral.amazon.com',
 ];
 
 module.exports = {

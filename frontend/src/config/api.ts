@@ -2,7 +2,7 @@
 // 注意：由于config/ports.js是CommonJS模块，我们需要动态导入或使用硬编码的URL
 // 为了避免模块系统冲突，这里使用硬编码的URL配置
 
-const BACKEND_URL = 'http://localhost:3001';
+const BACKEND_URL = 'http://127.0.0.1:3001';
 
 export const API_CONFIG = {
   // 后端API基础URL
