@@ -2,8 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'backend',
-      script: 'npm',
-      args: 'start',
+      script: 'npm run dev',
       cwd: './backend',
       instances: 1,
       autorestart: true,
@@ -16,9 +15,8 @@ module.exports = {
     },
     {
       name: 'frontend',
-      script: 'serve',
-      args: '-s frontend/dist -p 3000',
-      cwd: './',
+      script: 'npm run dev',
+      cwd: './frontend',
       instances: 1,
       autorestart: true,
       watch: false,
@@ -26,9 +24,8 @@ module.exports = {
     },
     {
       name: 'admin',
-      script: 'serve',
-      args: '-s backend-admin/dist -p 3002',
-      cwd: './',
+      script: 'npm run dev',
+      cwd: './backend-admin',
       instances: 1,
       autorestart: true,
       watch: false,
