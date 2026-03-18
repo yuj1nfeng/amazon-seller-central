@@ -4,111 +4,33 @@ type CN = Array<string | undefined | null | false>;
 const cn = (...args: CN) => args.filter(Boolean).join(" ");
 
 /**
- * Auth 页用：修复 1:1 还原 Logo
- * 指导：amazon 部分加粗，seller central 部分常规，箭头 from a 指向 z
+ * Auth 页用：使用新的 logo 图片
+ * 指导：替换为 public/log.png 图片
  */
 export const BrandLogo = ({ className = "" }: { className?: string }) => {
   return (
     <div className={cn("flex flex-col items-center select-none", className)}>
-      <div className="flex items-baseline relative">
-        <span
-          className="text-[18px] font-bold text-black leading-none tracking-tighter"
-          style={{ fontFamily: "Amazon Ember, Arial, sans-serif" }}
-        >
-          amazon
-        </span>
-        <span
-          className="text-[18px] font-normal text-black leading-none tracking-tight ml-1"
-          style={{ fontFamily: "Amazon Ember, Arial, sans-serif" }}
-        >
-          seller central
-        </span>
-
-        {/* 橙色微笑箭头：起点第一个 a，终点 z 的转角 */}
-        <svg
-          className="absolute left-[4px] top-[10px]"
-          width="60"
-          height="20"
-          viewBox="0 0 82 18"
-          fill="none"
-        >
-          <path
-            d="M2 3.5C12 11.5 38 11.5 52 3.5"
-            stroke="#FF9900"
-            strokeWidth="2.8"
-            strokeLinecap="round"
-          />
-          <path
-            d="M41 3L52 3.5L45 10.5"
-            stroke="#FF9900"
-            strokeWidth="2.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </div>
+      <img 
+        src="/log.png" 
+        alt="Logo" 
+        className="h-[40px] object-contain pt-2 pb-1" // 添加了一些上下边距
+      />
     </div>
   );
 };
 
 /**
  * App(控制台) Header 用：MainLayout.tsx 会 import { ConsoleLogo }
- * ✅ 这里“只增强”，不影响 Auth 的 BrandLogo / Card / Button / InputField
- *
- * 调整点：
- * - 字体稍大：14 -> 15（你反馈你的小）
- * - seller central 字重：semibold -> medium（更贴近真实）
- * - smile 的位置与长度更接近真实 header（第三张图）
+ * ✅ 现在使用新的 logo 图片
  */
 export const ConsoleLogo = ({ className = "" }: { className?: string }) => {
   return (
-    <div
-      className={cn("flex items-center select-none", className)}
-      aria-label="amazon seller central"
-      style={{
-        fontFamily: "Amazon Ember, Segoe UI, Arial, Helvetica, sans-serif",
-        WebkitFontSmoothing: "antialiased",
-        textRendering: "geometricPrecision",
-      }}
-    >
-      <div className="relative">
-        <div className="flex items-baseline gap-[6px]">
-          <span className="text-[15px] font-bold text-white leading-none tracking-tight">
-            amazon
-          </span>
-          <span className="text-[15px] font-medium text-white leading-none tracking-tight">
-            seller central
-          </span>
-        </div>
-
-        {/* orange smile (更贴近 console header 版本) */}
-      {/* orange smile — header version (arrow points to "z") */}
-        <svg
-          className="absolute left-[1px] top-[11px]"
-          width="36"
-          height="10"
-          viewBox="0 0 72 10"
-          fill="none"
-        >
-          {/* 主弧线：更弯曲版本 */}
-          <path
-            d="M2 3.2C16 7.8 46 7.8 66 3.2"
-            stroke="#FF9900"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-          />
-          {/* 箭头：指向 z */}
-          <path
-            d="M58 2.8L66 3.2L60.5 8.2"
-            stroke="#FF9900"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-
-
-      </div>
+    <div className={cn("flex items-center select-none", className)}>
+      <img 
+        src="/log.png" 
+        alt="Logo" 
+        className="h-[30px] object-contain my-auto" // 添加垂直居中对齐
+      />
     </div>
   );
 };
