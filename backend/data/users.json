@@ -6,11 +6,11 @@
     "role": "admin",
     "store_id": "store-us-main",
     "is_active": true,
-    "last_login": "2026-03-18T06:21:17.524Z",
+    "last_login": "2026-03-28T06:59:58.746Z",
     "password": "A123456",
     "otp_secret": "123456",
     "created_at": "2026-01-01T00:00:00.000Z",
-    "updated_at": "2026-03-18T06:21:17.524Z"
+    "updated_at": "2026-03-28T06:59:58.746Z"
   },
   {
     "id": "user-manager-001",
@@ -98,5 +98,17 @@
     "otp_secret": "318770",
     "created_at": "2026-01-21T17:35:44.406Z",
     "updated_at": "2026-01-21T17:35:44.406Z"
+  },
+  {
+    "id": "user-1773818832574-f1mhlax",
+    "email": "zihuwhunxmk66@163.com",
+    "name": "ASDF",
+    "role": "user",
+    "is_active": true,
+    "password": "R320795",
+    "otp_secret": "929208",
+    "created_at": "2026-03-18T07:27:12.575Z",
+    "updated_at": "2026-03-18T08:48:40.462Z",
+    "last_login": "2026-03-18T08:48:40.462Z"
   }
 ]

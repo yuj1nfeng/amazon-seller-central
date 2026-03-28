@@ -23,14 +23,66 @@ export const BrandLogo = ({ className = "" }: { className?: string }) => {
  * App(控制台) Header 用：MainLayout.tsx 会 import { ConsoleLogo }
  * ✅ 现在使用新的 logo 图片
  */
+// export const ConsoleLogo = ({ className = "" }: { className?: string }) => {
+//   return (
+//     <div className={cn("flex items-center select-none", className)}>
+//       <img 
+//         src="/log.png" 
+//         alt="Logo" 
+//         className="h-[30px] object-contain my-auto" // 添加垂直居中对齐
+//       />
+//     </div>
+//   );
+// };
 export const ConsoleLogo = ({ className = "" }: { className?: string }) => {
   return (
-    <div className={cn("flex items-center select-none", className)}>
-      <img 
-        src="/log.png" 
-        alt="Logo" 
-        className="h-[30px] object-contain my-auto" // 添加垂直居中对齐
-      />
+    <div
+      className={cn("flex items-center select-none", className)}
+      aria-label="amazon seller central"
+      style={{
+        fontFamily: "Amazon Ember, Segoe UI, Arial, Helvetica, sans-serif",
+        WebkitFontSmoothing: "antialiased",
+        textRendering: "geometricPrecision",
+      }}
+    >
+      <div className="relative">
+        <div className="flex items-baseline gap-[6px]">
+          <span className="text-[15px] font-bold text-white leading-none tracking-tight">
+            amazon
+          </span>
+          <span className="text-[15px] font-medium text-white leading-none tracking-tight">
+            seller central
+          </span>
+        </div>
+
+        {/* orange smile (更贴近 console header 版本) */}
+      {/* orange smile — header version (arrow points to "z") */}
+        <svg
+          className="absolute left-[1px] top-[11px]"
+          width="36"
+          height="10"
+          viewBox="0 0 72 10"
+          fill="none"
+        >
+          {/* 主弧线：更弯曲版本 */}
+          <path
+            d="M2 3.2C16 7.8 46 7.8 66 3.2"
+            stroke="#FF9900"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+          />
+          {/* 箭头：指向 z */}
+          <path
+            d="M58 2.8L66 3.2L60.5 8.2"
+            stroke="#FF9900"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+
+
+      </div>
     </div>
   );
 };

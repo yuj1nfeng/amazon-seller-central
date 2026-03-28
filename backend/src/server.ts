@@ -15,6 +15,10 @@ import vocRoutes from './routes/voc';
 import authRoutes from './routes/auth';
 import communicationsRoutes from './routes/communications';
 import accountHealthRoutes from './routes/accountHealth';
+import taxInfoRoutes from './routes/taxInfo';
+// import legalEntityRoutes from './routes/legalEntity';
+import sellingApplicationsRoutes from './routes/sellingApplications';
+
 
 // Import middleware
 import { errorHandler } from './middleware/errorHandler';
@@ -47,7 +51,9 @@ app.use('/api/users', userRoutes);
 app.use('/api/voc', vocRoutes);
 app.use('/api/communications', communicationsRoutes);
 app.use('/api/account-health', accountHealthRoutes);
-
+app.use('/api/tax-info', taxInfoRoutes);
+// app.use('/api/legal-entity', legalEntityRoutes);
+app.use('/api/selling-applications', sellingApplicationsRoutes);
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({

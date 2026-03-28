@@ -146,15 +146,26 @@ export type AccountHealth = z.infer<typeof AccountHealthSchema>;
 
 // Legal Entity Schema
 export const LegalEntitySchema = z.object({
-  id: z.string(),
+  id: z.string().optional(),
   store_id: z.string(),
-  business_name: z.string().optional(),
-  address_line1: z.string().optional(),
-  address_line2: z.string().optional(),
-  city: z.string().optional(),
-  province: z.string().optional(),
-  postal_code: z.string().optional(),
-  updated_at: z.string(),
+  legalBusinessName: z.string().optional(),
+  businessAddress: z.object({
+    street: z.string().optional(),
+    suite: z.string().optional(),
+    city: z.string().optional(),
+    state: z.string().optional(),
+    zipCode: z.string().optional(),
+    country: z.string().optional(),
+  }).optional(),
+  taxInformation: z.object({
+    status: z.string().optional(),
+    taxId: z.string().optional(),
+    taxClassification: z.string().optional(),
+  }).optional(),
+  businessType: z.string().optional(),
+  registrationDate: z.string().optional(),
+  created_at: z.string().optional(),
+  updated_at: z.string().optional(),
 });
 
 export type LegalEntity = z.infer<typeof LegalEntitySchema>;
@@ -368,3 +379,39 @@ export const UpdateStoreRequestSchema = CreateStoreRequestSchema.partial().exten
   order_notifications: z.boolean().optional(),
   is_active: z.boolean().optional(),
 });
+
+// Tax Info Schema
+export const TaxInfoSchema = z.object({
+  id: z.string().optional(),
+  store_id: z.string(),
+  legal_business_name: z.string().optional(),
+  place_of_establishment: z.string().optional(),
+  vat_registration_number: z.string().optional(),
+  rfc_id: z.string().optional(),
+  tax_interview_completed: z.boolean().optional(),
+  tax_information_complete: z.boolean().optional(),
+  created_at: z.string().optional(),
+  updated_at: z.string().optional(),
+});
+
+export type TaxInfo = z.infer<typeof TaxInfoSchema>;
+
+// VAT/GST Registration Schema
+export const VatRegistrationSchema = z.object({
+  id: z.string().optional(),
+  store_id: z.string(),
+  country: z.string(),
+  registration_number: z.string(),
+  status: z.enum(['Active', 'Pending', 'Expired']).optional(),
+  verified: z.boolean().optional(),
+  created_at: z.string().optional(),
+  updated_at: z.string().optional(),
+});
+
+export type VatRegistration = z.infer<typeof VatRegistrationSchema>;
+
+// Tax Info Response
+export interface TaxInfoResponse {
+  taxInfo: TaxInfo;
+  vatRegistrations: VatRegistration[];
+}

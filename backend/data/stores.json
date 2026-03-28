@@ -1,7 +1,7 @@
 [
   {
     "id": "store-us-main",
-    "name": "TechNest美国主店",
+    "name": "UltraGlass® Official",
     "marketplace": "United States",
     "currency_symbol": "$",
     "timezone": "America/New_York",
@@ -12,7 +12,7 @@
     "auto_pricing": true,
     "inventory_alerts": true,
     "order_notifications": true,
-    "contact_email": "admin@technest-us.com",
+    "contact_email": "zihuwhunxmk66@163.com",
     "contact_phone": "+1-555-0123",
     "tax_id": "US123456789",
     "created_at": "2026-01-01T00:00:00.000Z",

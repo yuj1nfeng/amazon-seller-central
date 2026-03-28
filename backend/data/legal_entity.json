@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "id": "legal-entity-store-us-main",
+    "store_id": "store-us-main",
+    "legalBusinessName": "shen zhen shi an si xiao jia dian you xian gong si",
+    "businessAddress": {
+      "street": "C1412",
+      "suite": "Block C",
+      "city": "Zhantao Technology Bulding. Intersection of Minzhi Avenue and Gongye East Road",
+      "state": "Xinniu Community, Minzhi Subdistic, Longhua Dis trict, Shenzhen.",
+      "zipCode": "Guangdong 518000",
+      "country": "China"
+    },
+    "taxInformation": {
+      "status": "Pending",
+      "taxId": "US55454231",
+      "taxClassification": "LLC"
+    },
+    "businessType": "Limited Liability Company",
+    "registrationDate": "2023-01-15",
+    "updated_at": "2026-03-18T08:09:39.079Z",
+    "created_at": "2026-03-18T08:02:56.611Z"
+  }
+]

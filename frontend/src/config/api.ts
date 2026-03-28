@@ -74,6 +74,12 @@ export const API_CONFIG = {
       REFRESH_OTP: (id: string) => `/api/users/${id}/refresh-otp`,
       REFRESH_PASSWORD: (id: string) => `/api/users/${id}/refresh-password`,
     },
+
+    // 税务信息相关
+    TAX_INFO: {
+      GET: (storeId: string) => `/api/tax-info/${storeId}`,
+      UPDATE: (storeId: string) => `/api/tax-info/${storeId}`,
+    },
   }
 };
 
